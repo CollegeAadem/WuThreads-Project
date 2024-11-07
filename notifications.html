@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Settings</title>
+    <link rel="stylesheet" href="notifications.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="settings.html" class="home-button">Back</a>
+        </div>
+        
+    </header>
+    <main>
+        <div class="settings-options">
+            <h2>Notifications Settings</h2>
+            <form id="notifications-form">
+                <div>
+                    <label for="email-notifications">Email Notifications:</label>
+                    <input type="checkbox" id="email-notifications" name="email-notifications">
+                </div>
+                <div>
+                    <label for="groups">Notify me about posts from these groups:</label>
+                    <select id="groups" name="groups" multiple>
+                        <option value="group1">Group 1</option>
+                        <option value="group2">Group 2</option>
+                        <option value="group3">Group 3</option>
+                        <option value="group4">Group 4</option>
+                    </select>
+                </div>
+                <button type="submit">Save Settings</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

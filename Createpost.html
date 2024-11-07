@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="createpost.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="mainfeed.html" class="home-button">Home</a>
+        </div>
+    </header>
+    <main>
+        <div class="create-post">
+            <h2>Create a Post</h2>
+            <form id="create-post-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="event-date">Event Date:</label>
+                <input type="date" id="event-date" name="event-date" required>
+                
+                <label for="event-description">Event Description:</label>
+                <textarea id="event-description" name="event-description" rows="4" cols="50" placeholder="Describe the event and where it might be taking place" required></textarea>
+                
+                <label for="event-points">Event Points:</label>
+                <input type="text" id="event-points" name="event-points" readonly>
+                <button type="button" onclick="generatePoints()">Generate Points</button>
+                
+                <label for="feed-selection">Select Feeds:</label>
+                <select id="feed-selection" name="feed-selection" multiple required>
+                    <option value="feed1">Feed 1</option>
+                    <option value="feed2">Feed 2</option>
+                    <option value="feed3">Feed 3</option>
+                    <!-- Add more feeds as needed -->
+                </select>
+                
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </main>
+    <script src="createapost.js"></script>
+</body>
+</html>

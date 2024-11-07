@@ -1,0 +1,30 @@
+// main.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import { firebaseConfig } from './firebase-config.js';
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    console.log(username);
+    console.log(password);
+
+    try {
+        // Assuming username is the email for simplicity
+        const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
+        const user = userCredential.user;
+
+        console.log('User logged in:', user);
+        window.location.href = 'mainfeed.html';
+    } catch (error) {
+        console.error('Error logging in:', error);
+        alert('Error logging in: ' + error.message);
+    }
+});

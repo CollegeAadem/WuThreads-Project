@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #791717;
+    color: white;
+    height: 60px;
+}
+
+.header-left .home-button,
+.header-right .settings-button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #5a1212;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.header-left .home-button:hover,
+.header-right .settings-button:hover {
+    background-color: #3e0d0d;
+}
+
+.header-right {
+    position: absolute;
+    right: 60px;
+}
+main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.settings-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-options h2 {
+    margin-bottom: 20px;
+}
+
+.settings-options form div {
+    margin-bottom: 15px;
+}
+
+.settings-options label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.settings-options input[type="checkbox"],
+.settings-options select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.settings-options button {
+    padding: 10px 20px;
+    background-color: #791717;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.settings-options button:hover {
+    background-color: #5a1212;
+}

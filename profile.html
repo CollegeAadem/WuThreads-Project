@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <span class="username">Username</span>
+        </div>
+        <div class="header-right">
+            <button class="settings-button" onclick = "window.location.href = 'settings.html'">⚙️</button>
+        </div>
+    </header>
+    <main>
+        <div class="profile-info">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+            <div class="profile-stats">
+                <p>Posts: <span id="posts-count">123</span></p>
+                <p>Points: <span id="points-count">456</span></p>
+                <p>Events Attended: <span id="events-count">7</span></p>
+            </div>
+        </div>
+        <div class="recent-posts">
+            <h2>Recent Posts</h2>
+            <ul>
+                <li>Blah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlah</li>
+                <li>Blah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlah</li>
+                <li>Blah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlah</li>
+                <!-- Add more posts as needed -->
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <button class="home-button" onclick="window.location.href='mainfeed.html'">Home</button>
+        <button class="create-post-button" onclick="window.location.href='Createpost.html'">Create Post</button>
+        <button class="profile-button" onclick="window.location.href='profile.html'">Profile</button>
+    </footer>
+</body>
+</html>

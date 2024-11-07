@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mainfeed.css">
+    <script src="https://kit.fontawesome.com/7b8e1c8c9f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="mainfeed.js"></script>
+    <title>Main Feed</title>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>WuThreads</h1>
+        </div>
+        <div class="header-right">
+            <button class="settings-button" onclick="window.location.href='settings.html'">
+                <i class="fas fa-cog"></i> Settings
+            </button>
+        </div>
+    </header>
+    <nav>
+        <select class="dropdown-menu">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>    
+    </nav>
+    <main>
+        <div class="wrapper" id="posts-container">
+            <!-- Recent posts will be displayed here -->
+        </div>
+    </main>
+    <footer>
+        <button class="home-button" onclick="window.location.href='mainfeed.html'">Home</button>
+        <button class="create-post-button" onclick="window.location.href='Createpost.html'">Create Post</button>
+        <button class="profile-button" onclick="window.location.href='profile.html'">Profile</button>
+    </footer>
+</body>
+</html>

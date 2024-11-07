@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - WuThreads</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script type="module" src="firebase-config.js"></script>
+</head>
+<script>
+function validate() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const email = document.getElementById('email').value;
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+
+    if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return false;
+    }
+
+    return { username, password, email, firstName, lastName };
+}
+
+
+</script>
+<body>
+    <div class="wrapper">
+        <form id="create-account-form">
+            <h2>WuThreads</h2>
+            <h3>Create an Account</h3>
+            <div class="input-field">
+                <label>Create a username</label>
+                <input type="text" id="username" value="">
+            </div>
+            <div class="input-field">
+                <label>Create a password (Must contain: 1 uppercase letter, 1 special character, 1 lowercase letter, 1 digit)</label>
+                <input type="password" id="password" required pattern="(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*\d).+">
+            </div>
+            <div class="input-field">
+                <label>Confirm password</label>
+                <input type="password" id="confirm-password" required pattern="(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*\d).+">
+            </div>
+            <div class="input-field">
+                <label>Enter your email</label>
+                <input type="email" id="email" required pattern=".+@willamette\.edu">
+            </div>
+            <div class="input-field">
+                <label>Enter your first name</label>
+                <input type="text" id="first-name" required>
+            </div>
+            <div class="input-field">
+                <label>Enter your last name</label>
+                <input type="text" id="last-name" required>
+            </div>
+            <button type="submit" value="Submit" onclick="return validate()">Create Account</button>
+        </form>
+        <div class="register">
+            <p>
+                Already have an account?
+                <a href="Wuthreads.html">Log in here!</a>
+            </p>
+        </div>
+    </div>
+    <script type="module" src="createAccount.js"></script>
+</body>
+</html>

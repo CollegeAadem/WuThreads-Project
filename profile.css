@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Increased padding */
+    background-color: #791717;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-left .username {
+    color: white;
+    font-size: 24px; /* Increased font size */
+    font-weight: bold;
+}
+
+.header-right .settings-button {
+    background: none;
+    border: none;
+    font-size: 30px; /* Increased font size */
+    cursor: pointer;
+    color: white;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-stats {
+    font-size: 20px; /* Increased font size */
+}
+
+.profile-stats p {
+    margin: 5px 0;
+}
+
+.recent-posts {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recent-posts h2 {
+    font-size: 24px; /* Increased font size */
+    margin-bottom: 10px;
+}
+
+.recent-posts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recent-posts li {
+    margin: 10px 0;
+    font-size: 18px; /* Increased font size */
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    background-color: #791717;
+    color: white;
+    border-top: 1px solid #ddd;
+}
+
+footer button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+footer button:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    width: 5px;
+    background-color: white;
+}

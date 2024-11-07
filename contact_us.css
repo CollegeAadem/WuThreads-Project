@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+header {
+    position: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the h1 */
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #791717;
+    color: white;
+    z-index: 1000; /* Ensure header is on top */
+    height: 60px; /* Set a fixed height for the header */
+}
+
+.h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-left {
+    position: absolute;
+    left: 20px; /* Position the back button on the left */
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #5a1212;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #3e0d0d;
+}
+
+main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* Increase margin to avoid overlap with fixed header */
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #791717;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #5a1212;
+}
+
+#message {
+    margin-top: 20px;
+}
