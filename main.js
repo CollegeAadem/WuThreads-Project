@@ -10,15 +10,15 @@ const auth = getAuth(app);
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const username = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const username = document.getElementById('email');
+    const password = document.getElementById('password');
 
     console.log(username);
     console.log(password);
 
     try {
         // Assuming username is the email for simplicity
-        const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
+        const userCredential = await signInWithEmailAndPassword(auth, username.value, password.value);
         const user = userCredential.user;
 
         console.log('User logged in:', user);

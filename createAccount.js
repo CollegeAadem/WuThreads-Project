@@ -12,10 +12,10 @@ const db = getFirestore(app);
 function validate() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
     const email = document.getElementById('email').value;
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
+    const firstName = document.getElementById('first_name').value;
+    const lastName = document.getElementById('last_name').value;
 
     if (password !== confirmPassword) {
         alert('Passwords do not match');
@@ -51,7 +51,7 @@ document.getElementById('create-account-form').addEventListener('submit', async 
         console.log('User created:', user);
         window.location.href = 'interests.html';
     } catch (error) {
-        console.error('Error creating user:', error);
+        console.error('Error creating user:', error, error.code);
         alert('Error creating account: ' + error.message);
     }
 });
