@@ -22,25 +22,48 @@
                 <label for="event-date">Event Date:</label>
                 <input type="date" id="event-date" name="event-date" required>
                 
-                <label for="event-description">Event Description:</label>
-                <textarea id="event-description" name="event-description" rows="4" cols="50" placeholder="Describe the event and where it might be taking place" required></textarea>
+                <label for="event-details">Event Details:</label>
+                <textarea id="event-details" name="event-details" rows="4" cols="50" required></textarea>
                 
-                <label for="event-points">Event Points:</label>
-                <input type="text" id="event-points" name="event-points" readonly>
-                <button type="button" onclick="generatePoints()">Generate Points</button>
-                
-                <label for="feed-selection">Select Feeds:</label>
-                <select id="feed-selection" name="feed-selection" multiple required>
-                    <option value="feed1">Feed 1</option>
-                    <option value="feed2">Feed 2</option>
-                    <option value="feed3">Feed 3</option>
-                    <!-- Add more feeds as needed -->
+                <label for="feed">Select Feed:</label>
+                <select id="feed" name="feed" required>
+                    <option value="mainfeed">Main Feed</option>
+                    <option value="sportsfeed">Sports Feed</option>
+                    <option value="newsfeed">News Feed</option>
                 </select>
                 
-                <button type="submit">Post</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </main>
-    <script src="createapost.js"></script>
+    <script>
+        // Handle form submission
+        document.getElementById('create-post-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Retrieve form data
+            const username = document.getElementById('username').value;
+            const eventDate = document.getElementById('event-date').value;
+            const eventDetails = document.getElementById('event-details').value;
+            const feed = document.getElementById('feed').value;
+
+            // Create a post object
+            const post = {
+                username: username,
+                eventDate: eventDate,
+                eventDetails: eventDetails,
+                feed: feed,
+                points: 50 // Default points
+            };
+
+            // Save the post to local storage (or send it to a server)
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push(post);
+            localStorage.setItem('posts', JSON.stringify(posts));
+
+            // Redirect to the selected feed page
+            window.location.href = 'mainfeed.html';
+        });
+    </script>
 </body>
 </html>

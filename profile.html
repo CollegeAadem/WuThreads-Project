@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!----<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@
                 <li>Blah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlah</li>
                 <li>Blah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlah</li>
                 <li>Blah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlahBlah BlahBlahBlahBlahBlahBlahBlahBlah</li>
-                <!-- Add more posts as needed -->
+                <!-- Add more posts as needed
             </ul>
         </div>
     </main>
@@ -38,6 +38,79 @@
         <button class="home-button" onclick="window.location.href='mainfeed.html'">Home</button>
         <button class="create-post-button" onclick="window.location.href='Createpost.html'">Create Post</button>
         <button class="profile-button" onclick="window.location.href='profile.html'">Profile</button>
+    </footer>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+        import { getFirestore, doc, getDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+        import { firebaseConfig } from './firebase-config.js';
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    const userDoc = await getDoc(doc(db, 'users', user.uid));
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        document.querySelector('.username').textContent = userData.username;
+
+                        // Fetch and display user's posts
+                        const postsQuery = query(collection(db, 'posts'), where('userId', '==', user.uid));
+                        const postsSnapshot = await getDocs(postsQuery);
+                        const postsContainer = document.querySelector('.profile-posts');
+                        postsSnapshot.forEach((postDoc) => {
+                            const postData = postDoc.data();
+                            const postElement = document.createElement('div');
+                            postElement.classList.add('post');
+                            postElement.textContent = postData.content;
+                            postsContainer.appendChild(postElement);
+                        });
+                    }
+                } else {
+                    window.location.href = 'login.html'; // Redirect to login if not authenticated
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <span class="username">Username</span>
+        </div>
+        <div class="header-right">
+            <button class="settings-button" onclick="window.location.href = 'settings.html'">⚙️</button>
+        </div>
+    </header>
+    <main>
+        <div class="profile-info">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+            <div class="profile-stats">
+                <!-- Add profile stats here -->
+            </div>
+        </div>
+        <div class="profile-posts">
+            <!-- User's posts will be displayed here -->
+        </div>
+    </main>
+    <footer>
+        <button onclick="window.location.href='mainfeed.html'">Home</button>
+        <button onclick="window.location.href='createpost.html'">Create Post</button>
+        <button onclick="window.location.href='profile.html'">Profile</button>
     </footer>
 </body>
 </html>

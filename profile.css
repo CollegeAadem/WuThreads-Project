@@ -54,8 +54,19 @@ main {
     font-size: 20px; /* Increased font size */
 }
 
-.profile-stats p {
+.profile-stats span {
+    display: block;
     margin: 5px 0;
+}
+
+.total-posts {
+    font-weight: bold;
+    color: #333;
+}
+
+.total-points {
+    font-weight: bold;
+    color: #333;
 }
 
 .recent-posts {

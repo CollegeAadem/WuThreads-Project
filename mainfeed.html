@@ -22,6 +22,7 @@
     </header>
     <nav>
         <select class="dropdown-menu">
+            <option value="" disabled selected>Please choose a feed...</option>
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
@@ -37,5 +38,46 @@
         <button class="create-post-button" onclick="window.location.href='Createpost.html'">Create Post</button>
         <button class="profile-button" onclick="window.location.href='profile.html'">Profile</button>
     </footer>
+    <script>
+        // Function to display posts
+        function displayPosts() {
+            const postsContainer = document.getElementById('posts-container');
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const currentUser = localStorage.getItem('currentUser'); // Retrieve the current user's username from local storage
+
+            postsContainer.innerHTML = ''; // Clear existing posts
+            if (posts.length === 0) {
+                postsContainer.innerHTML = `
+                    <p>No posts yet! <a href="Createpost.html">Create one now?</a></p>
+                `;
+            } else {
+                posts.slice().reverse().forEach((post, index) => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'post';
+                    postElement.innerHTML = `
+                        <h3>${post.username}</h3>
+                        <p><strong>Date:</strong> ${post.eventDate}</p>
+                        <p><strong>Details:</strong> ${post.eventDetails}</p>
+                        <p><strong>Points:</strong> ${post.points}</p>
+                        ${post.username === currentUser ? `<button class="delete-button" onclick="deletePost(${posts.length - 1 - index})">Delete</button>` : ''}
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+            }
+        }
+
+        // Function to delete a post
+        function deletePost(index) {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.splice(index, 1); // Remove the post at the specified index
+            localStorage.setItem('posts', JSON.stringify(posts)); // Update local storage
+            displayPosts(); // Refresh the posts display
+        }
+
+        // Call displayPosts on page load
+        window.onload = function() {
+            displayPosts();
+        };
+    </script>
 </body>
 </html>
